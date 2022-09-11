@@ -1,11 +1,11 @@
 # IXD617_202290_01
 IXD 617 Advanced Tech: Mobile Web
 
-## Hamilton Cline
+## Xinying Ren
 
 ### Important Links
-- https://hdraws.com/aau/IXD617
+- https://xinyingren.net/aau/ixd617
 - https://github.com/bronkula/IXD617_202290_01
 
 ### Assignment Links
-- https://hdraws.com/aau/IXD617/profile/
+- https://xinyingren.net/aau/ixd617/profile/
