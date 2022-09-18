@@ -9,3 +9,4 @@ IXD 617 Advanced Tech: Mobile Web
 
 ### Assignment Links
 - http://www.xinyingren.net/aau/ixd617/profile/
+- http://www.xinyingren.net/aau/ixd617/csszengarden/
