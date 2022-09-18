@@ -1,0 +1,61 @@
+/*all elements*/
+html{
+    margin: 20px;
+    padding: 0;
+}
+a{
+    color:midnightblue;
+}
+header h1 {
+    background: radial-gradient(#F8F8FF, #6C87D9);
+    text-align: center;
+    padding: 70px;
+    margin-top: 0%;
+}
+h1 {
+    color: #6C87D9;
+    font-size: 50px;
+}
+.summary{
+    border: 3px solid powderblue;
+    margin: 25px 50px 25px;
+    padding: 10px;
+}
+h2{
+    color:burlywood;
+    margin: 25px 50px;
+}
+.preamble{
+    margin: 25px 50px 25px;
+    padding: 10px;
+    color:#6C87D9;
+}
+abbr{
+    color: burlywood;
+}
+
+.main.supporting{
+    column-count: 4;
+    column-gap: 40px;
+    column-rule: 3px dotted #6C87D9;
+    margin: 25px 50px 25px;
+    padding: 10px;
+}
+.main.supporting h3{
+    color: burlywood;
+    column-fill: balance;
+}
+.main.supporting p{
+    color:dimgray;
+}
+
+aside{
+    background:radial-gradient(#F8F8FF, #6C87D9);
+    padding: 20px;
+    column-count: 3;
+    column-gap: 40px;
+}
+aside h3{
+    column-span: all;
+    color:burlywood;
+}
