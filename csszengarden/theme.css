@@ -6,6 +6,11 @@ html{
 a{
     color:midnightblue;
 }
+.page-wrapper{
+    background-image: url(img/bg03.jpg);
+    background-position: center;
+}
+
 header h1 {
     background: radial-gradient(#F8F8FF, #6C87D9);
     text-align: center;
@@ -13,16 +18,19 @@ header h1 {
     margin-top: 0%;
 }
 h1 {
-    color: #6C87D9;
-    font-size: 50px;
+    color:lightpink;
+    font-size: 80px;
+    font-family: 'Abril Fatface', cursive;
 }
 .summary{
-    border: 3px solid powderblue;
+    border: 5px dotted #6C87D9;
     margin: 25px 50px 25px;
     padding: 10px;
 }
 h2{
     color:burlywood;
+    font-family: 'Pacifico', cursive;
+    font-size: 35px;
     margin: 25px 50px;
 }
 .preamble{
@@ -36,24 +44,31 @@ abbr{
 
 .main.supporting{
     column-count: 4;
-    column-gap: 40px;
+    column-gap: 30px;
     column-rule: 3px dotted #6C87D9;
     margin: 25px 50px 25px;
     padding: 10px;
+    display: flex;
 }
 .main.supporting h3{
     color: burlywood;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 30px;
     column-fill: balance;
 }
 .main.supporting p{
     color:dimgray;
 }
 
+footer{
+    display:none;
+}
+
 aside{
     background:radial-gradient(#F8F8FF, #6C87D9);
     padding: 20px;
     column-count: 3;
-    column-gap: 40px;
+    display:ruby-base-container;
 }
 aside h3{
     column-span: all;
