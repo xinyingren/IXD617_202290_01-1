@@ -189,7 +189,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../images/map.png');
+    background-image: url('../../images/map02.png');
     background-position: center;
     background-size: cover;
 }
@@ -295,22 +295,99 @@ a {
 
 .modal-head,
 .modal-foot {
-    background-color: var(--color-main-medium);
+    background-color: var(--color-main-yellow);
     padding: 0.5em 1em;
 }
 .modal-body {
-    background-color: var(--color-main-light);
-    padding: 1em;
+    background-color: white;
+    padding: 2em;
     flex: 1 1 100%;
     overflow: auto;
 }
 
 
 /* TREE LIST */
-.treelist {
-    height: 100%;
+.treelist .treelist-item {
     position: relative;
-    overflow: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1.5em;
+}
 
-    padding: 1em;
+img {
+    background-size: cover;
+    background-position: center;
+    height: 50%;
+    width: 100%;
+}
+
+/* TREE PROFILE */
+.tree_profile{
+    margin: 0.7rem;
+    border-radius: 0.5em;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2, h3, p {
+    margin: 20px 20px;
+}
+h2 {
+    font-family: var(--font-header);
+    color: var(--color-main-medium);
+    margin-top: 10px;
+    font-style: initial;
+}
+h3 {
+    font-family: var(--font-body);
+    color: var(--color-main-yellow);
+    font-size: 1.2rem;
+}
+p {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-main-dark);
+}
+
+.user_image {
+    background-size: cover;
+    background-position: center;
+    height: 50%;
+    width: 100%;
+}
+
+.user_profile {
+    margin: 0.7rem;
+}
+
+
+.js-logout {
+    background-color: var(--color-main-light);
+    border-width: 0;
+    border-radius: 0.8em;
+    padding: 0.5em 1em;
+    display: inline-block;
+    width: 100%;
+    font: inherit;
+    text-align: center;
+    color: inherit;
+}
+
+
+
+
+[data-role="footer"] .icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    vertical-align: middle;
+}
+[data-role="footer"] a {
+    line-height: 1rem;
+}
+.footer-icon {
+    display: block;
+    line-height: 1.7rem;
+}
+.footer-label {
+    line-height: 1.3rem;
+    font-size: 0.6rem;
+    display: block;
 }

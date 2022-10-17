@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fruiter</title>
 
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="256x256" href="images/icons/fruiter_logo.png">
+
     <!-- <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css"> -->
     <link rel="stylesheet" href="src/css/app.css">
 
@@ -45,8 +48,8 @@
                 </div>
                 <div>
                     <a href="#recent-page" class="form-button">Sign In</a>
-                </div>
-                <div class="flex-stretch"></div> -->
+                </div> -->
+                <div class="flex-stretch"></div>
         </div>
     </section>
 
@@ -82,22 +85,32 @@
             <div class="map"></div>
 
             <div class="floater top left">
-                <a href="#" class="btn-circle" data-activate="#recent-add-modal">☰</a>
+                <a href="#" class="btn-circle" data-activate="#recent-add-modal">
+                    <!-- <img src="images/icons/add_circle.svg"> -->&plus;
+                </a>
             </div>
 
             <div id="recent-add-modal" class="modal">
                 <div class="modal-back transparent" data-deactivate="#recent-add-modal"></div>
-                <div class="modal-drawer left">
-                    <div class="modal-head">Head</div>
-                    <div class="modal-body">Body</div>
+                <div class="modal-popup">
+                    <div class="modal-head">Add Fruit Tree</div>
+                    <div class="modal-body">Add Location</div>
                 </div>
             </div>
         </div>
         <footer data-role="footer">
             <ul>
-                <li><a href="#recent-page">Home</a></li>
-                <li><a href="#list-page">List</a></li>
-                <li><a href="#user-profile-page">Profile</a></li>
+                <li><a href="#recent-page">
+                   <span class="footer-icon"><img class="icon" src="images/icons/tree_icon.svg"></span>
+                    <span class="footer-label">Home</span>
+                </a></li>
+                <li><a href="#list-page">
+                    <span class="footer-icon"><img class="icon" src="images/icons/list.svg"></span>
+                    <span class="footer-label">List</span>
+                </a></li>
+                <li><a href="#user-profile-page">
+                    <span class="footer-icon"><img class="icon" src="images/icons/profile.svg"></span>
+                    <span class="footer-label">Profile</span></a></li>
             </ul>
         </footer>
     </section>
@@ -107,49 +120,34 @@
         <header data-role="header">
             <h1>Fruit Tree List</h1>
         </header>
-        <div data-role="main">
+        <div data-role="main" class="overscroll">
             <div class="treelist">
             <!--div.treelist-item*10>a[href="#tree-profile-page"]>{tree $}-->
-                <div class="treelist-item"><a href="#tree-profile-page">tree 1</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 2</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 3</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 4</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 5</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 6</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 7</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 8</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 9</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 10</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 1</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 2</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 3</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 4</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 5</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 6</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 7</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 8</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 9</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 10</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 1</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 2</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 3</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 4</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 5</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 6</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 7</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 8</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 9</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 10</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 1</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 2</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 3</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 4</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 5</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 6</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 7</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 8</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 9</a></div>
-                <div class="treelist-item"><a href="#tree-profile-page">tree 10</a></div>
+                <div class="treelist-item"><a href="#tree-profile-page">
+                    <img src="images/apple.jpeg" class="image">
+                    Apple
+                </a></div>
+                <div class="treelist-item"><a href="#tree-profile-page">
+                    <img src="images/orange.jpeg" class="image">
+                    Orange
+                </a></div>
+                <div class="treelist-item"><a href="#tree-profile-page">
+                    <img src="images/peach.jpeg" class="image">
+                    Peach
+                </a></div>
+                <div class="treelist-item"><a href="#tree-profile-page">
+                    <img src="images/pear.jpeg" class="image">
+                    Pear
+                </a></div>
+                <div class="treelist-item"><a href="#tree-profile-page">
+                    <img src="images/mango.jpeg" class="image">
+                    Mango
+                </a></div>
+                <div class="treelist-item"><a href="#tree-profile-page">
+                    <img src="images/cherry.jpeg" class="image">
+                    Cherry
+                </a></div>
+                
             </div>
             <div class="floater bottom right">
                 <a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
@@ -157,9 +155,17 @@
         </div>
         <footer data-role="footer">
             <ul>
-                <li><a href="#recent-page">Home</a></li>
-                <li><a href="#list-page">List</a></li>
-                <li><a href="#user-profile-page">Profile</a></li>
+                <li><a href="#recent-page">
+                   <span class="footer-icon"><img class="icon" src="images/icons/tree_icon.svg"></span>
+                    <span class="footer-label">Home</span>
+                </a></li>
+                <li><a href="#list-page">
+                    <span class="footer-icon"><img class="icon" src="images/icons/list.svg"></span>
+                    <span class="footer-label">List</span>
+                </a></li>
+                <li><a href="#user-profile-page">
+                    <span class="footer-icon"><img class="icon" src="images/icons/profile.svg"></span>
+                    <span class="footer-label">Profile</span></a></li>
             </ul>
         </footer>
 
@@ -175,18 +181,43 @@
 
     <!-- USER PROFILE PAGE-->
     <section data-role="page" id="user-profile-page">
-        
-        <div data-role="main">
+        <header data-role="header">
             <h1>Profile</h1>
-            <div>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#tree-edit-page">Edit</a></li>
+            </ul>
+        </header>
+
+        <div data-role="main">
+            <img src="images/user01.jpeg" class="user_image">
+            <div class="user_profile">
+                <h2>Kristen</h2>
+                <h3>Location</h3>
+                <p>Alley Pond Park Springfield Blvd. &, 76th Ave, Bayside, NY 11364</p>
+                <h3>Email</h3>
+                <p>rkristen012@gmail.com</p>
+                
+            </div>
+
+            <div class="form-control">
                 <a href="#" class="js-logout">Log out</a>
             </div>
         </div>
         <footer data-role="footer">
             <ul>
-                <li><a href="#recent-page">Home</a></li>
-                <li><a href="#list-page">List</a></li>
-                <li><a href="#user-profile-page">Profile</a></li>
+                <li><a href="#recent-page">
+                   <span class="footer-icon"><img class="icon" src="images/icons/tree_icon.svg"></span>
+                    <span class="footer-label">Home</span>
+                </a></li>
+                <li><a href="#list-page">
+                    <span class="footer-icon"><img class="icon" src="images/icons/list.svg"></span>
+                    <span class="footer-label">List</span>
+                </a></li>
+                <li><a href="#user-profile-page">
+                    <span class="footer-icon"><img class="icon" src="images/icons/profile.svg"></span>
+                    <span class="footer-label">Profile</span></a></li>
             </ul>
         </footer>
     </section>
@@ -204,7 +235,14 @@
         </header>
 
         <div data-role="main">
-            Tree Profile
+            <img src="images/apple.jpeg" class="image">
+            <div class="tree_profile">
+                <h2>Apple Tree</h2>
+                <h3>Location History</h3>
+                <p>Alley Pond Park Springfield Blvd. &, 76th Ave, Bayside, NY 11364</p>
+                <h3>Description</h3>
+                <p>The apple is a small tree that can reach 25 feet in height with a crown spread of 25 feet (The Natioanl Arbor Day Foundation Website). The leaves are simple, oval in shape, have small serrations along the margin, and are arranged alternately along the branches.</p>
+            </div>
         </div>
        
     </section>
