@@ -19,7 +19,7 @@ const getUsers = () => (new Array(10)).fill(0).map((o,i)=>{
     o.name = chance.name();
     o.username = 'user'+o.id;
     o.password = md5('pass');
-    o.emil = o.username+'@gmail.com';
+    o.email = o.username+'@gmail.com';
     o.img = `https://via.placeholder.com/${num()}x${num()}/${hex()}/fff/?text=${o.name}`;
     o.date_create = getdate(Date.parse('2020/01/01'),Date.now());
     return o;
@@ -79,11 +79,11 @@ window.addEventListener('DOMContentLoaded',()=>{
     getTrees());});
     document.querySelector('.locations-json').addEventListener('click',()=>{ exportAsJSON('Locations',
     getLocations());});
-    document.querySelector('.users-sql').addEventListener('click',()=>{ exportAsSQL('Users',
+    document.querySelector('.users-sql').addEventListener('click',()=>{ exportAsSQL('track_202290_users',
     getUsers());});
-    document.querySelector('.trees-sql').addEventListener('click',()=>{ exportAsSQL('Trees',
+    document.querySelector('.trees-sql').addEventListener('click',()=>{ exportAsSQL('track_202290_trees',
     getTrees());});
-    document.querySelector('.locations-sql').addEventListener('click',()=>{ exportAsSQL('Locations',
+    document.querySelector('.locations-sql').addEventListener('click',()=>{ exportAsSQL('track_202290_locations',
     getLocations());});
 
 });
