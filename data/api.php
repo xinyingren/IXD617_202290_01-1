@@ -38,12 +38,50 @@ function makeQuery($conn,$prep,$params,$makeResults=true) {
     }
 }
 
+function makeStatement($data) {
+    $conn = makeConn();
+    $type = @$data->type;
+    $params = @$data->params;
+
+    switch($type) {
+        case "users_all":
+            return makeQuery($conn, "SELECT * FROM `track_202290_users`", $params);
+        case "trees_all":
+            return makeQuery($conn, "SELECT * FROM `track_202290_users`", $params);
+        case "locations_all":
+            return makeQuery($conn, "SELECT * FROM `track_202290_users`", $params);
+
+        
+        case "user_by_id":
+            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `id`=?", $params);
+        case "tree_by_id":
+            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `id`=?", $params);
+        case "location_by_id":
+            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `id`=?", $params);
+            
+        
+        case "trees_by_user_id":
+            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `user_id`=?", $params);
+        case "locations_by_tree_id":
+            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `tree_id`=?", $params);
+
+
+
+        case "check_signin":
+            return makeQuery($conn, "SELECT `id` FROM `track_202290_users` WHERE `username`=? AND
+            `password` = md5(?)", $params);
+
+
+        default:
+            return ["error"=>"No Matched Type"];
+    }
+}
+
+$data = json_decode(file_get_Contents("php://input"))
+
 die(
     json_encode(
-        makeQuery(
-            makeConn(),
-            "SELECT * FROM track_202290_users",
-            []
-        )
+        makeStatement($data),
+        JSON_NUMERIC_CHECK
     )
 );

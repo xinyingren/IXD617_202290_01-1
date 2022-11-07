@@ -10,3 +10,8 @@ IXD 617 Advanced Tech: Mobile Web
 ### Assignment Links
 - http://www.xinyingren.net/aau/ixd617/profile/
 - http://www.xinyingren.net/aau/ixd617/csszengarden/
+
+### Example Files
+- http://www.xinyingren.net/aau/ixd617/examples/jquery.html
+- http://www.xinyingren.net/aau/ixd617/examples/jquery_mobile.html
+- http://www.xinyingren.net/aau/ixd617/data/generator.html

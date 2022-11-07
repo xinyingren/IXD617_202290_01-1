@@ -307,18 +307,31 @@ a {
 
 
 /* TREE LIST */
-.treelist .treelist-item {
-    position: relative;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 1.5em;
+.treelist-item {
+    display: block;
+    box-shadow: 0 3px 10px rgba(0 0 0 / 15%);
+    margin: 1em 0;
+    border-radius: 1em;
+    overflow: hidden;
+    font-weight: normal;
+    color: inherit;
 }
 
-img {
-    background-size: cover;
-    background-position: center;
-    height: 50%;
-    width: 100%;
+.treelist-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    vertical-align: text-bottom;
+
+}
+
+.treelist-body {
+    padding: 1em;
+}
+
+.treelist-name {
+    font-size: 1.3em;
 }
 
 /* TREE PROFILE */
@@ -391,3 +404,5 @@ p {
     font-size: 0.6rem;
     display: block;
 }
+
+
