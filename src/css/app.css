@@ -406,3 +406,43 @@ p {
 }
 
 
+#tree-profile-page [data-role="main"] {
+    display: flex;
+    flex-direction: column;
+}
+.tree-profile-top {
+    height: 30vh;
+    flex: none;
+    background-position: center;
+    background-size: cover;
+}
+.tree-profile-nav {
+    flex: none;
+    line-height:var(--header-height);
+    display:flex;
+}
+.nav-link {
+    flex: 1 1 50%;
+    text-align: center;
+}
+.nav-link.active {
+    background-color:var(--color-main-light);
+}
+.tree-profile-bottom {
+    position: relative;
+    flex: 1 1 100%;
+}
+.tree-profile-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition:all 0.3s;
+}
+.tree-profile-section.active {
+    opacity: 1;
+    pointer-events: initial;
+}
