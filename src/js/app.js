@@ -13,9 +13,9 @@ $(() => {
         /* PAGE ROUTES */
         switch(ui.toPage[0].id) {
             case "recent-page": RecentPage(); break;
-            case "list-page": ListPage; break;
-            case "user-profile-page": UserProfilePage; break;
-            case "tree-profile-page": TreeProfilePage; break;
+            case "list-page": ListPage(); break;
+            case "user-profile-page": UserProfilePage(); break;
+            case "tree-profile-page": TreeProfilePage(); break;
         }
     })
     

@@ -47,29 +47,28 @@ function makeStatement($data) {
         case "users_all":
             return makeQuery($conn, "SELECT * FROM `track_202290_users`", $params);
         case "trees_all":
-            return makeQuery($conn, "SELECT * FROM `track_202290_users`", $params);
+            return makeQuery($conn, "SELECT * FROM `track_202290_trees`", $params);
         case "locations_all":
-            return makeQuery($conn, "SELECT * FROM `track_202290_users`", $params);
+            return makeQuery($conn, "SELECT * FROM `track_202290_locations`", $params);
 
         
         case "user_by_id":
-            return makeQuery($conn, "SELECT id,name,email,username,img,date-create FROM `track_202290_users` WHERE `id`=?", $params);
+            return makeQuery($conn, "SELECT id,name,email,username,img,date_create FROM `track_202290_users` WHERE `id`=?", $params);
         case "tree_by_id":
-            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `id`=?", $params);
+            return makeQuery($conn, "SELECT * FROM `track_202290_trees` WHERE `id`=?", $params);
         case "location_by_id":
-            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `id`=?", $params);
+            return makeQuery($conn, "SELECT * FROM `track_202290_locations` WHERE `id`=?", $params);
             
         
         case "trees_by_user_id":
-            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `user_id`=?", $params);
+            return makeQuery($conn, "SELECT * FROM `track_202290_trees` WHERE `user_id`=?", $params);
         case "locations_by_tree_id":
-            return makeQuery($conn, "SELECT * FROM `track_202290_users` WHERE `tree_id`=?", $params);
+            return makeQuery($conn, "SELECT * FROM `track_202290_locations` WHERE `tree_id`=?", $params);
 
 
 
         case "check_signin":
-            return makeQuery($conn, "SELECT `id` FROM `track_202290_users` WHERE `username`=? AND
-            `password` = md5(?)", $params);
+            return makeQuery($conn, "SELECT `id` FROM `track_202290_users` WHERE `username`=? AND `password` = md5(?)", $params);
 
 
         default:
@@ -77,7 +76,7 @@ function makeStatement($data) {
     }
 }
 
-$data = json_decode(file_get_Contents("php://input"))
+$data = json_decode(file_get_Contents("php://input"));
 
 die(
     json_encode(

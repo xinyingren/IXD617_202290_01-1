@@ -5,7 +5,6 @@ export const checkSigninForm = async() => {
     const userval = $("#signin-username").val();
     const passval = $("#signin-password").val();
 
-    console.log(userval, passval)
 
     let founduser = await query({
         type: 'check_signin',
