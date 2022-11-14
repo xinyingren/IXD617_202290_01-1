@@ -84,4 +84,9 @@ export const TreeProfilePage = async() => {
         params:[sessionStorage.treeId]
     });
     console.log(locations)
+
+
+    let map_el = await makeMap("#tree-profile-page .map");
+    makeMarkers(map_el,locations);
 }
+
