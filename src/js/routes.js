@@ -1,4 +1,5 @@
 import { query } from "./functions.js"
+import { makeMap, makeMarkers } from "./maps.js";
 import { makeTreeList, makeTreeProfileDescription, makeUserProfilePage } from "./parts.js";
 
 
