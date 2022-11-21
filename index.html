@@ -90,19 +90,17 @@
        <div data-role="main">
             <div class="map"></div>
 
-            <div class="floater top left">
-                <a href="#" class="btn-circle" data-activate="#recent-add-modal">
-                    <!-- <img src="images/icons/add_circle.svg"> -->&plus;
-                </a>
+            <div class="floater bottom right">
+                <a href="#choose-tree-page" class="btn-circle">&plus;</a>
             </div>
 
-            <div id="recent-add-modal" class="modal">
-                <div class="modal-back transparent" data-deactivate="#recent-add-modal"></div>
-                <div class="modal-popup">
-                    <div class="modal-head">Add Fruit Tree</div>
-                    <div class="modal-body">Add Location</div>
+            <div id="map-recent-modal" class="modal">
+                <div class="modal-back transparent" data-deactivate="#map-recent-modal"></div>
+                <div class="modal-drawer island top">
+                    <div class="modal-body"></div>
                 </div>
             </div>
+
         </div>
         <footer data-role="footer">
             <ul>
@@ -116,7 +114,8 @@
                 </a></li>
                 <li><a href="#user-profile-page">
                     <span class="footer-icon"><img class="icon" src="images/icons/profile.svg"></span>
-                    <span class="footer-label">Profile</span></a></li>
+                    <span class="footer-label">Profile</span>
+                </a></li>
             </ul>
         </footer>
     </section>
@@ -128,11 +127,11 @@
         </header>
         <div data-role="main" class="overscroll">
             <div class="treelist"></div>
-            <!--
+            
             <div class="floater bottom right">
                 <a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
             </div>
-             -->
+            
         </div>
         <footer data-role="footer">
             <ul>
@@ -149,7 +148,7 @@
                     <span class="footer-label">Profile</span></a></li>
             </ul>
         </footer>
-        <!--
+        
         <div id="list-add-modal" class="modal">
             <div class="modal-back" data-deactivate="#list-add-modal"></div>
             <div class="modal-popup">
@@ -158,21 +157,66 @@
                 <div class="modal-foot">Foot</div>
             </div>
         </div>
-        -->
+        
     </section>
 
-    <!-- USER PROFILE PAGE-->
-    <section data-role="page" id="user-profile-page">
+     <!-- CHOOSE TREE PAGE -->
+     <section data-role="page" id="choose-tree-page">
         <header data-role="header">
-            <h1>Profile</h1>
+            <h1>Choose tree</h1>
             <ul>
                 <li><a href="#" data-rel="back">Back</a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#tree-edit-page">Edit</a></li>
+                <li><a href="#choose-location-page">Next</a></li>
             </ul>
         </header>
+        <div data-role="main">
+            form for choose fruit tree
+        </div>
+    </section>
 
-        <div data-role="main"></div>
+    <!-- CHOOSE LOCATION PAGE -->
+    <section data-role="page" id="choose-location-page">
+        <header data-role="header">
+            <h1>Choose Location</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#choose-description-page">Next</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <div class="map"></div>
+        </div>
+    </section>
+
+    <!-- TREE DESCRIPTION PAGE -->
+    <section data-role="page" id="choose-description-page">
+        <header data-role="header">
+            <h1>Description of Tree</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#list-page">Save</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            form for description
+        </div>
+    </section>
+
+
+    <!-- USER PROFILE PAGE-->
+    <section data-role="page" id="user-profile-page">
+        <div data-role="main">
+            <div class="body"></div>
+
+            <div class="floater top right">
+                <a href="#user-settings-page">
+                    <img class="icon" style="font-size:1.3em" src="images/icons/menu.svg" />
+                </a>
+            </div>
+        </div>
         <footer data-role="footer">
             <ul>
                 <li><a href="#recent-page">
@@ -188,6 +232,44 @@
                     <span class="footer-label">Profile</span></a></li>
             </ul>
         </footer>
+    </section>
+
+
+
+    <!-- USER SETTINGS PAGE -->
+    <section data-role="page" id="user-settings-page">
+        <header data-role="header">
+            <h1>Settings</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <div class="settings">
+                <li><a href="#user-edit-page">Edit User</a></li>
+                <li><a href="#" class="js-logout">Log out</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- USER EDIT PAGE -->
+    <section data-role="page" id="user-edit-page">
+        <header data-role="header">
+            <h1>Edit User</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#" data-rel="back" class="js-submit-user-edit-form">Submit</a></li>
+            </ul>
+        </header>
+        <form data-role="main" data-ajax="false" id="user-edit-form" class="padded display-flex flex-column full overscroll">
+            <div class="body"></div>
+            <div class="flex-stretch"></div>
+
+            <!--<div class="form-control">
+                <input class="form-button" type="submit" data-role="none" value="Submit">
+            </div>
+        </form> -->
     </section>
 
 
@@ -215,8 +297,29 @@
                 <div class="tree-profile-section section-description"></div>
             </div>
         </div>
-       
     </section>
+
+
+    <!--TREE EDIT PAGE -->
+    <section data-role="page" id="tree-edit-page">
+        <header data-role="header">
+            <h1>Edit Tree</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#" data-rel="back" class="js-submit-animal-edit-form">Submit</a></li>
+            </ul>
+        </header>
+        <form data-role="main" data-ajax="false" id="tree-edit-form" class="padded display-flex flex-column full overscroll">
+            <div class="body"></div>
+            <div class="flex-stretch"></div>
+
+            <div class="form-control">
+                <input class="form-button" type="submit" data-role="none" value="Submit">
+            </div>
+        </form>
+    </section>
+
 
 </body>
 </html>

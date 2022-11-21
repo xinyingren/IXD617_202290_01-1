@@ -1,6 +1,6 @@
 import { query } from "./functions.js"
 import { makeMap, makeMarkers } from "./maps.js";
-import { makeTreeList, makeTreeProfileDescription, makeUserProfilePage } from "./parts.js";
+import { makeEditTreeForm, makeEditUserForm, makeTreeList, makeTreeMapDescription, makeTreeProfileDescription, makeUserProfilePage } from "./parts.js";
 
 
 export const RecentPage = async() => {
@@ -42,6 +42,29 @@ export const RecentPage = async() => {
 
     let map_el = await makeMap("#recent-page .map");
     makeMarkers(map_el,valid_trees);
+
+    map_el.data("markers").forEach((m,i)=>{
+        // console.log(m)
+        m.addListener("click",function(e){
+            // console.log(e)
+            let tree = valid_trees[i];
+            // console.log(tree)
+
+            // Just Navigate
+            // sessionStorage.treelId = tree.tree_id;
+            // $.mobile.navigate("#tree-profile-page")
+
+            // Open Google InfoWindow
+            // let {map,infoWindow} = map_el.data();
+            // infoWindow.open(map, m);
+            // infoWindow.setContent(makeTreeMapDescription(tree));
+
+            $("#map-recent-modal")
+                .addClass("active")
+                .find(".modal-body")
+                .html(makeTreeMapDescription(tree))
+        })
+    });
 }
 
 export const ListPage = async() => {
@@ -66,7 +89,7 @@ export const UserProfilePage = async() => {
 
     console.log(user)
 
-    $("#user-profile-page [data-role='main']").html(makeUserProfilePage(user))
+    $("#user-profile-page .body").html(makeUserProfilePage(user))
 }
 
 export const TreeProfilePage = async() => {
@@ -91,3 +114,33 @@ export const TreeProfilePage = async() => {
     makeMarkers(map_el,locations);
 }
 
+export const ChooseLocationPage = async() => {
+    let map_el = await makeMap("#choose-location-page .map");
+    makeMarkers(map_el,[]);
+}
+
+
+
+export const UserEditPage = async() => {
+    let {result:users} = await query({
+        type:"user_by_id",
+        params:[sessionStorage.userId]
+    });
+    let [user] = users;
+
+    $("#user-edit-page .body").html(makeEditUserForm(user));
+}
+
+
+export const TreeEditPage = async() => {
+    let {result:trees} = await query({
+        type:"tree_by_id",
+        params:[sessionStorage.treeId]
+    });
+    let [tree] = trees;
+
+    $("#tree-edit-page .body").html(makeEditTreeForm({
+        tree,
+        namespace:'tree-edit'
+    }));
+}
