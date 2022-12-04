@@ -38,6 +38,20 @@ function makeQuery($conn,$prep,$params,$makeResults=true) {
     }
 }
 
+
+function makeUpload($file, $folder) {
+    $filename = microtime(true) . "_" . $_FILES[$file]['name'];
+
+    if (@move_uploaded_file(
+        $_FILES[$file]['tmp_name'],
+        $folder.$filename
+    )) return ["result"=>$filename];
+    else return [
+        "error"=>"File Upload Failed",
+        "filename"=>$filename
+    ];
+}
+
 function makeStatement($data) {
     $conn = makeConn();
     $type = @$data->type;
@@ -53,7 +67,7 @@ function makeStatement($data) {
 
         
         case "user_by_id":
-            return makeQuery($conn, "SELECT id,name,email,username,img,date_create FROM `track_202290_users` WHERE `id`=?", $params);
+            return makeQuery($conn, "SELECT `id`,`name`,`email`,`username`,`img,date_create` FROM `track_202290_users` WHERE `id`=?", $params);
         case "tree_by_id":
             return makeQuery($conn, "SELECT * FROM `track_202290_trees` WHERE `id`=?", $params);
         case "location_by_id":
@@ -96,6 +110,192 @@ function makeStatement($data) {
             ORDER BY l.tree_id, l.date_create DESC
             ", $params);
 
+        case "search_trees":
+            return makeQuery($conn, "SELECT *
+            FROM `track_202290_trees`
+            WHERE 
+                `name` LIKE ? AND
+                `user_id` = ?
+            ", $params);
+
+        case "filter_trees":
+            return makeQuery($conn, "SELECT *
+            FROM `track_202290_trees`
+            WHERE 
+                `$params[0]` = ? AND
+             `user_id` = ?
+            ", [$params[1],$params[2]]);
+
+        
+        /* INSERT */
+
+        case "insert_user":
+            $result = makeQuery($conn, "SELECT `id`
+            FROM `track_202290_users`
+            WHERE `username`=? OR `email`=?
+            ", [$params[0],$params[1]]);
+            if (count($result['result']) > 0)
+                return ["error"=>"Username or Email already exists"];
+
+            $result = makeQuery($conn, "INSERT INTO
+            `track_202290_users`
+            (
+                `username`,
+                `email`,
+                `password`,
+                `img`,
+                `date_create`
+            )
+            VALUES
+            (
+                ?,
+                ?,
+                md5(?),
+                'https://via.placeholder.com/400/?text=USER',
+                NOW()
+            )
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["id" => $conn->lastInsertId()];
+
+        case "insert_tree":
+            $result = makeQuery($conn, "INSERT INTO
+            `track_202290_trees`
+            (
+                `user_id`,
+                `name`,
+                `type`,
+                `breed`,
+                `description`,
+                `img`,
+                `date_create`
+            )
+            VALUES
+            (
+                ?,
+                ?,
+                ?,
+                ?,
+                ?,
+                'https://via.placeholder.com/400/?text=TREE',
+                NOW()
+            )
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+        case "insert_location":
+            $result = makeQuery($conn, "INSERT INTO
+            `track_202290_locations`
+            (
+                `tree_id`,
+                `lat`,
+                `lng`,
+                `description`,
+                `photo`,
+                `icon`,
+                `date_create`
+            )
+            VALUES
+            (
+                ?,
+                ?,
+                ?,
+                ?,
+                'https://via.placeholder.com/400/?text=PHOTO',
+                'https://via.placeholder.com/400/?text=ICON',
+                NOW()
+            )
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+
+
+
+
+
+        /* UPDATE */
+
+        case "update_user":
+            $result = makeQuery($conn, "UPDATE
+            `track_202290_users`
+            SET
+                `name` = ?,
+                `username` = ?,
+                `email` = ?
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+        case "update_password":
+            $result = makeQuery($conn, "UPDATE
+            `track_202290_users`
+            SET
+                `password` = md5(?)
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+        case "update_tree":
+            $result = makeQuery($conn, "UPDATE
+            `track_202290_trees`
+            SET
+                `name` = ?,
+                `type` = ?,
+                `breed` = ?,
+                `description` = ?
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+        
+        
+
+        /* UPLOAD */
+        case "update_user_photo":
+            $result = makeQuery($conn, "UPDATE
+            `track_202290_users`
+            SET `img` = ?
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+
+
+        /* DELETE */
+        case "delete_tree":
+            $result = makeQuery($conn, "DELETE FROM
+            `track_202290_trees`
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+        case "delete_location":
+            $result = makeQuery($conn, "DELETE FROM
+            `track_202290_locations`
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+
+
+
 
 
         case "check_signin":
@@ -106,6 +306,12 @@ function makeStatement($data) {
             return ["error"=>"No Matched Type"];
     }
 }
+
+if (!empty($_FILES)) {
+    $result = makeUpload("image","../uploads/");
+    die(json_encode($result));
+}
+
 
 $data = json_decode(file_get_Contents("php://input"));
 

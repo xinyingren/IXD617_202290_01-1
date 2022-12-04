@@ -14,7 +14,7 @@ export const makeTreeList = templater(({id,name,type,breed,img})=>`
 
 export const makeUserProfilePage = ({name,email,username,img})=>`
 <div>
-    <div class="user-profile-image"><img src="${img}"></div>
+    <div class="user-profile-image"><a href="#user-edit-photo-page"><img src="${img}"></a></div>
     <div class="user-profile-body">
         <div class="user-profile-name">${name}</div>
         <div class="user-profile-username">@${username}</div>
@@ -111,4 +111,24 @@ export const makeEditTreeForm = ({tree,namespace}) => {
         value: tree.description
     })}
     `;
+}
+
+
+
+
+
+const filterList = (trees,type) => {
+    let arr = [...(new Set(trees.map(o=>o[type])))];
+    return templater(o=>o?`<span data-filter="${type}" data-value="${o}">${o}</span>`:'')(arr);
+}
+
+
+export const makeFilterList = (trees) => {
+    return `
+        <span data-filter="type" data-value="">All</span>
+        |
+        ${filterList(trees,'type')}
+        |
+        ${filterList(trees,'breed')}
+    `
 }

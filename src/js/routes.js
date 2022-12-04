@@ -1,6 +1,6 @@
 import { query } from "./functions.js"
 import { makeMap, makeMarkers } from "./maps.js";
-import { makeEditTreeForm, makeEditUserForm, makeTreeList, makeTreeMapDescription, makeTreeProfileDescription, makeUserProfilePage } from "./parts.js";
+import { makeEditTreeForm, makeEditUserForm, makeFilterList, makeTreeList, makeTreeMapDescription, makeTreeProfileDescription, makeUserProfilePage } from "./parts.js";
 
 
 export const RecentPage = async() => {
@@ -77,7 +77,7 @@ export const ListPage = async() => {
     console.log(trees)
 
     $("#list-page .treelist").html(makeTreeList(trees))
-
+    $(".filter-bar").html(makeFilterList(trees))
 }
 
 export const UserProfilePage = async() => {
@@ -117,6 +117,12 @@ export const TreeProfilePage = async() => {
 export const ChooseLocationPage = async() => {
     let map_el = await makeMap("#choose-location-page .map");
     makeMarkers(map_el,[]);
+    map_el.data("map").addListener("click",function(e){
+        console.log(e)
+        $("#location-lat").val(e.latLng.lat());
+        $("#location-lng").val(e.latLng.lng());
+        makeMarkers(map_el,[e.latLng]);
+    })
 }
 
 
@@ -129,6 +135,33 @@ export const UserEditPage = async() => {
     let [user] = users;
 
     $("#user-edit-page .body").html(makeEditUserForm(user));
+}
+
+export const UserEditPhotoPage = async() => {
+    let {result:users} = await query({
+        type:"user_by_id",
+        params:[sessionStorage.userId]
+    });
+    let [user] = users;
+
+    $("#user-edit-photo-page .body").css({
+        "background-image": `url('${user.img}')`
+    });
+}
+
+
+
+
+export const TreeAddPage = async() => {
+    $("#tree-add-page .body").html(makeEditTreeForm({
+        tree:{
+            name:'',
+            type:'',
+            breed:'',
+            description:'',
+        },
+        namespace:'tree-add'
+    }));
 }
 
 
