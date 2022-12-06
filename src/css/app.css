@@ -537,6 +537,7 @@ img {
     padding-inline: 1em;
     gap: 1em;
     overflow:auto;
+    white-space: nowrap;
 }
 .filter-bar span {
     font-weight:bold;

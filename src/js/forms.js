@@ -161,7 +161,7 @@ export const checkTreeDeleteForm = () => {
 
 
 export const checkLocationAddForm = () => {
-    let animalid = $("#location-tree-id").val();
+    let treeid = $("#location-tree-id").val();
     let lat = $("#location-lat").val();
     let lng = $("#location-lng").val();
     let description = $("#location-description").val();
