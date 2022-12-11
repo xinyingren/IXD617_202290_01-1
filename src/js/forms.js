@@ -103,6 +103,7 @@ export const checkTreeAddForm = () => {
     let type = $("#tree-add-type").val();
     let breed = $("#tree-add-breed").val();
     let description = $("#tree-add-description").val();
+    let image = $("#tree-add-photo-image").val();
 
     query({
         type: 'insert_tree',
@@ -111,7 +112,8 @@ export const checkTreeAddForm = () => {
             name,
             type,
             breed,
-            description
+            description,
+            image
         ]
     }).then((data)=>{
         if (data.error) {
@@ -127,6 +129,7 @@ export const checkTreeEditForm = () => {
     let type = $("#tree-edit-type").val();
     let breed = $("#tree-edit-breed").val();
     let description = $("#tree-edit-description").val();
+    let image = $("#tree-edit-photo-image").val();
 
     query({
         type: 'update_tree',
@@ -135,6 +138,7 @@ export const checkTreeEditForm = () => {
             type,
             breed,
             description,
+            image,
             sessionStorage.treeId
         ]
     }).then((data)=>{

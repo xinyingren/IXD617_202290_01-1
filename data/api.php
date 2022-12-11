@@ -178,7 +178,7 @@ function makeStatement($data) {
                 ?,
                 ?,
                 ?,
-                'https://via.placeholder.com/400/?text=TREE',
+                ?,
                 NOW()
             )
             ", $params, false);
@@ -251,7 +251,8 @@ function makeStatement($data) {
                 `name` = ?,
                 `type` = ?,
                 `breed` = ?,
-                `description` = ?
+                `description` = ?,
+                `img` = ?
             WHERE `id` = ?
             ", $params, false);
 

@@ -66,7 +66,7 @@ $(() => {
             $(this).parent().prev().val(filename);
             $(this).parent().css({
                 "background-image": `url('${filename}')`
-            })
+            }).addClass("picked");
         })
     })
 
