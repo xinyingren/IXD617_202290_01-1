@@ -424,10 +424,11 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
+    padding: 1em;
     opacity: 0;
     pointer-events: none;
     transition:all 0.3s;
-    padding: 2em;
+    
 }
 .tree-profile-section.active {
     opacity: 1;
